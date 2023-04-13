@@ -7,14 +7,19 @@ using UnityEngine;
 
 public class topDownController : MonoBehaviour
 {
+    public float health = 100;
     private Camera camera;
     private Rigidbody rb;
+    [SerializeField] private GameObject bullet;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 3f;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCooldown = 1f;
+    [SerializeField] private float shootCooldown = 0.1f;
+    [SerializeField] private float shootSpeed = 1000f;
 
-    private bool isDashing = false;
+    private bool dashingAvailable = true;
+    private bool shootingAvailable = true;
     Vector3 movement = new Vector3(0,0,0);
     // Start is called before the first frame update
     void Start()
@@ -34,9 +39,14 @@ public class topDownController : MonoBehaviour
         movement.z = Input.GetAxisRaw("Vertical");
 
         lookAtMouse();
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        if (Input.GetKeyDown(KeyCode.Space) && dashingAvailable)
         {
             StartCoroutine(dash());
+        }
+        if(Input.GetMouseButton(0) && shootingAvailable)
+        {
+            Debug.Log("shoot");
+            shoot();
         }
     }
 
@@ -74,14 +84,25 @@ public class topDownController : MonoBehaviour
 
     private IEnumerator waitForDashCooldown()
     {
-        isDashing = true;
-        float timer = dashCooldown;
-        while(timer >= 0)
-        {
-            timer -= Time.smoothDeltaTime;
-            yield return null;
-        }
-        isDashing = false;
+        
+        dashingAvailable = false;
+        yield return new WaitForSeconds(dashCooldown);
+        dashingAvailable = true;
+    }
+
+    private void shoot()
+    {
+        StartCoroutine(waitForShootCooldown());
+        GameObject bullet_tmp = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
+        Rigidbody rb_bullet = bullet_tmp.GetComponent<Rigidbody>();
+        rb_bullet.AddForce(transform.forward * shootSpeed);
+    }
+    private IEnumerator waitForShootCooldown()
+    {
+        
+        shootingAvailable = false;
+        yield return new WaitForSeconds(shootCooldown);
+        shootingAvailable = true;
     }
 
 }
