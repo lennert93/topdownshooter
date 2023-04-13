@@ -12,7 +12,9 @@ public class topDownController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 3f;
     [SerializeField] private float dashTime = 0.2f;
+    [SerializeField] private float dashCooldown = 1f;
 
+    private bool isDashing = false;
     Vector3 movement = new Vector3(0,0,0);
     // Start is called before the first frame update
     void Start()
@@ -32,7 +34,7 @@ public class topDownController : MonoBehaviour
         movement.z = Input.GetAxisRaw("Vertical");
 
         lookAtMouse();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
         {
             StartCoroutine(dash());
         }
@@ -58,6 +60,7 @@ public class topDownController : MonoBehaviour
 
     private IEnumerator dash()
     {
+        StartCoroutine(waitForDashCooldown());
         float timer = dashTime;
         float initalMoveSpeed = moveSpeed;
         moveSpeed *= dashSpeed;
@@ -67,6 +70,18 @@ public class topDownController : MonoBehaviour
             yield return null;
         }
         moveSpeed = initalMoveSpeed;
+    }
+
+    private IEnumerator waitForDashCooldown()
+    {
+        isDashing = true;
+        float timer = dashCooldown;
+        while(timer >= 0)
+        {
+            timer -= Time.smoothDeltaTime;
+            yield return null;
+        }
+        isDashing = false;
     }
 
 }
