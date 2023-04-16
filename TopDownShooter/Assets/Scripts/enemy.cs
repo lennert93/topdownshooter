@@ -58,7 +58,10 @@ public class enemy : MonoBehaviour
 
     }
 
-    //berechnet Position Enemy - Position Spieler und gibt den umgekehrten Vector zurück
+    /// <summary>
+    /// berechnet Position Enemy - Position Spieler und gibt den umgekehrten Vector zurück
+    /// </summary>
+    /// <returns></returns>
     private Vector3 getVectorToPlayerPosition()
     {
         Vector3 enemyPosition = this.GetComponent<Rigidbody>().transform.position;
@@ -74,7 +77,9 @@ public class enemy : MonoBehaviour
     private Vector3 RotationVector = new Vector3(0f, 1f, 0f);
     private float rotationSpeed = 0.2f;
 
-    //umschauen, bei Sichtkontakt moving
+    /// <summary>
+    /// umschauen, bei Sichtkontakt moving
+    /// </summary>
     private void lookingForPlayer()
     {
         this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
@@ -85,7 +90,10 @@ public class enemy : MonoBehaviour
         }
     }
 
-    //
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     private Boolean seePlayer()
     {
         return true;

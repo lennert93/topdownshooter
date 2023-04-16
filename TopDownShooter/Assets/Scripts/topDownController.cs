@@ -56,6 +56,9 @@ public class topDownController : MonoBehaviour
         rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
+    /// <summary>
+    /// Macht, dass der Spieler immer in die Richtung des Mauszeigers schaut
+    /// </summary>
     private void lookAtMouse()
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
@@ -68,6 +71,10 @@ public class topDownController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Führt einen Dash aus
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator dash()
     {
         StartCoroutine(waitForDashCooldown());
@@ -82,6 +89,10 @@ public class topDownController : MonoBehaviour
         moveSpeed = initalMoveSpeed;
     }
 
+    /// <summary>
+    /// Cooldown für den Dash
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator waitForDashCooldown()
     {
         
@@ -90,6 +101,9 @@ public class topDownController : MonoBehaviour
         dashingAvailable = true;
     }
 
+    /// <summary>
+    /// Schießt in Richtung des Mauszeigers
+    /// </summary>
     private void shoot()
     {
         StartCoroutine(waitForShootCooldown());
@@ -97,6 +111,10 @@ public class topDownController : MonoBehaviour
         Rigidbody rb_bullet = bullet_tmp.GetComponent<Rigidbody>();
         rb_bullet.AddForce(transform.forward * shootSpeed);
     }
+    /// <summary>
+    /// Cooldown für das Schießen (regelt also die Schussrate)
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator waitForShootCooldown()
     {
         
