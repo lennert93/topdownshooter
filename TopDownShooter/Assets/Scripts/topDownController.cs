@@ -10,6 +10,7 @@ public class topDownController : MonoBehaviour
     public float health = 100;
     private Camera camera;
     private Rigidbody rb;
+    private Animator anim;
     [SerializeField] private GameObject bullet;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float dashSpeed = 3f;
@@ -26,6 +27,7 @@ public class topDownController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         camera = Camera.main;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,6 +39,8 @@ public class topDownController : MonoBehaviour
         //save keyboard input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
+        anim.SetFloat("vertical", Math.Abs(movement.z));
+        anim.SetFloat("horizontal", Math.Abs(movement.x));
 
         lookAtMouse();
         if (Input.GetKeyDown(KeyCode.Space) && dashingAvailable)
@@ -45,7 +49,6 @@ public class topDownController : MonoBehaviour
         }
         if(Input.GetMouseButton(0) && shootingAvailable)
         {
-            Debug.Log("shoot");
             shoot();
         }
     }
@@ -67,7 +70,7 @@ public class topDownController : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100f, layer_mask))
         {
             Debug.DrawRay(ray.GetPoint(0), ray.direction * 100);
-            transform.LookAt(hit.point + new Vector3(0, transform.position.y, 0));
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
     }
 

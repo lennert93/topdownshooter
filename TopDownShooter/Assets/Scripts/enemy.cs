@@ -24,7 +24,6 @@ public class enemy : MonoBehaviour
     {
         if (other.gameObject.tag == "bullet")
         {
-            Debug.Log("test");
             bulletinfo info = other.GetComponent<bulletinfo>();
 
             //leben reduzieren
