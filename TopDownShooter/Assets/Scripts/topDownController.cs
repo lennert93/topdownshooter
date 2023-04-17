@@ -7,17 +7,18 @@ using UnityEngine;
 
 public class topDownController : MonoBehaviour
 {
-    public float health = 100;
-    private Camera camera;
+    private Camera cam;
     private Rigidbody rb;
     private Animator anim;
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float dashSpeed = 3f;
-    [SerializeField] private float dashTime = 0.2f;
-    [SerializeField] private float dashCooldown = 1f;
-    [SerializeField] private float shootCooldown = 0.1f;
-    [SerializeField] private float shootSpeed = 1000f;
+
+    public float health = 100;
+    public GameObject bullet;
+    public float moveSpeed = 5f;
+    public float dashSpeed = 3f;
+    public float dashTime = 0.2f;
+    public float dashCooldown = 1f;
+    public float shootCooldown = 0.1f;
+    public float shootSpeed = 1000f;
 
     private bool dashingAvailable = true;
     private bool shootingAvailable = true;
@@ -26,7 +27,7 @@ public class topDownController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        camera = Camera.main;
+        cam = Camera.main;
         anim = GetComponent<Animator>();
     }
 
@@ -34,7 +35,7 @@ public class topDownController : MonoBehaviour
     void Update()
     {
         //make camera follow
-        camera.transform.position = transform.position + new Vector3(0, 10, -10);
+        cam.transform.position = transform.position + new Vector3(0, 10, -10);
 
         //save keyboard input
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -64,7 +65,7 @@ public class topDownController : MonoBehaviour
     /// </summary>
     private void lookAtMouse()
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         int layer_mask = LayerMask.GetMask("Terrain");
         if (Physics.Raycast(ray, out hit, 100f, layer_mask))

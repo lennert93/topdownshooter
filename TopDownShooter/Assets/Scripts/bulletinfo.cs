@@ -5,11 +5,11 @@ using UnityEngine;
 public class bulletinfo : MonoBehaviour
 {
     public float gunpower;
-    public float autoDestory = 2f; 
+    public float autoDestroy = 2f; 
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, autoDestory);
+        Destroy(this.gameObject, autoDestroy);
     }
 
     // Update is called once per frame
