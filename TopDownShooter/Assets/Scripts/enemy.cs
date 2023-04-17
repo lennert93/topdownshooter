@@ -20,15 +20,15 @@ public class enemy : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "bullet")
+        if (collision.gameObject.tag == "bullet")
         {
-            bulletinfo info = other.GetComponent<bulletinfo>();
+            bulletinfo info = collision.gameObject.GetComponent<bulletinfo>();
 
             //leben reduzieren
             reduceHealth(info.gunpower);
-            Destroy(other.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 
