@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBody
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: bag
+    m_Weight: 1
+  - m_Path: Dyp
+    m_Weight: 0
+  - m_Path: Dyp/Root
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/hipStrap
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/L_upperLeg
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/L_upperLeg/L_lowerLeg
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/L_upperLeg/L_lowerLeg/L_foot
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/L_upperLeg/L_lowerLeg/L_foot/L_toe
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/R_upperLeg
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/R_upperLeg/R_lowerLeg
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/R_upperLeg/R_lowerLeg/R_foot
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/R_upperLeg/R_lowerLeg/R_foot/R_toe
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/hips/tail
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/bag 1
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/bag 1/bottom
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/bag 1/frontPocket
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/bag 1/L_sidePocket
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/bag 1/R_sidePocket
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm/L_lowerArm
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm/L_lowerArm/L_hand
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm/L_lowerArm/L_hand/L_finger1
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm/L_lowerArm/L_hand/L_finger1/L_finger2
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/L_upperArm/L_lowerArm/L_hand/L_hold
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/L_clavicle/shoulderStrap
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/beak
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/beak/jaw
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/beak/jaw/tongue
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/beak/L_corner
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/beak/R_corner
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_eye
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_eye/L_iris
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_lowerLid
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_lowerLid/L_lowerLash
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_upperLid
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/L_upperLid/L_upperLash
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/ponpon
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_eye
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_eye/R_iris
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_lowerLid
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_lowerLid/R_lowerLash
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_upperLid
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/neck/head/R_upperLid/R_upperLash
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm/R_lowerArm
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm/R_lowerArm/R_hand
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm/R_lowerArm/R_hand/R_finger1
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm/R_lowerArm/R_hand/R_finger1/R_finger2
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/chest/R_clavicle/R_upperArm/R_lowerArm/R_hand/R_hold
+    m_Weight: 1
+  - m_Path: Dyp/Root/COG/spine/frontStrap
+    m_Weight: 1
+  - m_Path: eyes
+    m_Weight: 1
+  - m_Path: hat
+    m_Weight: 1
+  - m_Path: penguin
+    m_Weight: 0

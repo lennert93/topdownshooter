@@ -120,10 +120,11 @@ public class topDownController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator waitForShootCooldown()
     {
-        
+        anim.SetBool("shooting", true);
         shootingAvailable = false;
         yield return new WaitForSeconds(shootCooldown);
         shootingAvailable = true;
+        anim.SetBool("shooting", false);
     }
 
 }
