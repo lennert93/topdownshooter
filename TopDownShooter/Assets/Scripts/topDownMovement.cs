@@ -5,13 +5,12 @@ using System.Threading;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class topDownController : MonoBehaviour
+public class topDownMovement : MonoBehaviour
 {
     private Camera cam;
     private Rigidbody rb;
     private Animator anim;
 
-    public float health = 100;
     public float moveSpeed = 5f;
     public float dashSpeed = 3f;
     public float dashTime = 0.2f;
