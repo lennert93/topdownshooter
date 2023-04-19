@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class defaultWeapon : Weapon
 {
-    public override IEnumerator animateShot()
+    public override void shootEvent()
     {
-        animator.SetBool("throwing", true);
-        yield return new WaitForSeconds(firerate);
-        animator.SetBool("throwing", false);
+        animator.SetBool("throwing", !animator.GetBool("throwing"));
     }
 }

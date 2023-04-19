@@ -26,15 +26,30 @@ public abstract class Weapon : MonoBehaviour
     {
         if (shootIsOnCooldown) return;
         
-        behavior.Shoot(this);
-        StartCoroutine(waitForShootCooldown());
-        StartCoroutine(animateShot());
+        StartCoroutine(Multishot());
     }
-    public IEnumerator waitForShootCooldown()
+
+    private IEnumerator Multishot()
     {
         shootIsOnCooldown = true;
+        for (int i = 0; i <= multishot; i++)
+        {
+            shootEvent();
+            behavior.Shoot(this);
+            if (i != multishot)
+            {
+                yield return new WaitForSeconds(firerate / 4);
+                shootEvent();
+                yield return new WaitForSeconds(firerate / 4);
+            }
+        }
         yield return new WaitForSeconds(firerate);
+        shootEvent();
         shootIsOnCooldown = false;
     }
-    public abstract IEnumerator animateShot();
+
+    /// <summary>
+    /// feuert wenn entweder angefangen wird oder aufgehört wird zu schießen
+    /// </summary>
+    public abstract void shootEvent();
 }

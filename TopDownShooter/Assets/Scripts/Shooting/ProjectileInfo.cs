@@ -16,7 +16,7 @@ public class ProjectileInfo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(autoDestroy) 
+        if (autoDestroy && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
             Destroy(gameObject);
         }
