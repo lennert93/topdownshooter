@@ -22,12 +22,12 @@ public class enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.tag == "projectile")
         {
-            bulletinfo info = collision.gameObject.GetComponent<bulletinfo>();
+            ProjectileInfo info = collision.gameObject.GetComponent<ProjectileInfo>();
 
             //leben reduzieren
-            reduceHealth(info.gunpower);
+            reduceHealth(info.getDamage());
             Destroy(collision.gameObject);
         }
     }

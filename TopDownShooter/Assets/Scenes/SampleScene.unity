@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 78419701}
   - component: {fileID: 78419705}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,13 +360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  bullet: {fileID: 4476518324235823548, guid: ef47a222f9f8ccc8aa4f9bc19c92d3e4, type: 3}
   moveSpeed: 5
   dashSpeed: 3
   dashTime: 0.2
   dashCooldown: 1
-  shootCooldown: 0.5
-  shootSpeed: 1000
 --- !u!136 &92685518
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -645,7 +642,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-9176
+  m_Name: pb_Mesh24562
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -901,7 +898,7 @@ GameObject:
   - component: {fileID: 1137193093}
   - component: {fileID: 1137193092}
   - component: {fileID: 1137193091}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1731,7 +1728,7 @@ GameObject:
   - component: {fileID: 1388204339}
   - component: {fileID: 1388204338}
   - component: {fileID: 1388204337}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2699,7 +2696,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-10030
+  m_Name: pb_Mesh24576
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3207,7 +3204,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23222
+  m_Name: pb_Mesh24608
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5450,6 +5447,7 @@ GameObject:
   - component: {fileID: 92685515}
   - component: {fileID: 92685518}
   - component: {fileID: 92685516}
+  - component: {fileID: 8296172668324950354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5478,6 +5476,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8296172668324950354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172668324950352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eca7c97a9030b34f912b909dd2fa148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: -690721828453768507, guid: a20f7ef080a899e4eab9c5cedf5f65eb, type: 3}
 --- !u!1 &8345357772554278710
 GameObject:
   m_ObjectHideFlags: 0

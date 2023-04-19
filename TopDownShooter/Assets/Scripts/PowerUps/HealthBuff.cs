@@ -8,6 +8,6 @@ public class HealthBuff : PowerupEffect
     public float amount;
     public override void Apply(GameObject target)
     {
-        target.GetComponent<topDownController>().health += amount;
+        target.GetComponent<PlayerStats>().health += amount;
     }
 }

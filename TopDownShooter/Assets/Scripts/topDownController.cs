@@ -12,16 +12,12 @@ public class topDownController : MonoBehaviour
     private Animator anim;
 
     public float health = 100;
-    public GameObject bullet;
     public float moveSpeed = 5f;
     public float dashSpeed = 3f;
     public float dashTime = 0.2f;
     public float dashCooldown = 1f;
-    public float shootCooldown = 0.1f;
-    public float shootSpeed = 1000f;
 
     private bool dashingAvailable = true;
-    private bool shootingAvailable = true;
     Vector3 movement = new Vector3(0,0,0);
     // Start is called before the first frame update
     void Start()
@@ -47,10 +43,6 @@ public class topDownController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && dashingAvailable)
         {
             StartCoroutine(dash());
-        }
-        if(Input.GetMouseButton(0) && shootingAvailable)
-        {
-            shoot();
         }
     }
 
@@ -103,29 +95,6 @@ public class topDownController : MonoBehaviour
         dashingAvailable = false;
         yield return new WaitForSeconds(dashCooldown);
         dashingAvailable = true;
-    }
-
-    /// <summary>
-    /// Schießt in Richtung des Mauszeigers
-    /// </summary>
-    private void shoot()
-    {
-        StartCoroutine(waitForShootCooldown());
-        GameObject bullet_tmp = Instantiate(bullet, transform.position + transform.forward, Quaternion.identity);
-        Rigidbody rb_bullet = bullet_tmp.GetComponent<Rigidbody>();
-        rb_bullet.AddForce(transform.forward * shootSpeed);
-    }
-    /// <summary>
-    /// Cooldown für das Schießen (regelt also die Schussrate)
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator waitForShootCooldown()
-    {
-        anim.SetBool("shooting", true);
-        shootingAvailable = false;
-        yield return new WaitForSeconds(shootCooldown);
-        shootingAvailable = true;
-        anim.SetBool("shooting", false);
     }
 
 }
