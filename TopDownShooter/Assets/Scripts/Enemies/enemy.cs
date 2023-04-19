@@ -81,13 +81,18 @@ public class enemy : MonoBehaviour
     /// </summary>
     private void lookingForPlayer()
     {
-        this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
-        if (seePlayer())
+        if(Math.Abs(getVectorToPlayerPosition().x) < 7 && Math.Abs(getVectorToPlayerPosition().z) < 7) //Beispielwerte, müssen größer als Kamerasichtweite sein
         {
             moving();
-            //facing
         }
+        //this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
+        //if (seePlayer())
+        //{
+           // moving();
+           // //facing
+        //}
     }
+
 
     /// <summary>
     /// 
