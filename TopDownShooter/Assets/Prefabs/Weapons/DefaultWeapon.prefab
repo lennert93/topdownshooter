@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2318900439590997865}
   - component: {fileID: 4481358584403803625}
-  - component: {fileID: 6391167484985277515}
+  - component: {fileID: 3959765448551649666}
+  - component: {fileID: -8509430006224235352}
   m_Layer: 0
   m_Name: DefaultWeapon
   m_TagString: Untagged
@@ -49,11 +50,11 @@ MonoBehaviour:
   isAutomatic: 0
   projectile: {fileID: -3226818858245403308, guid: ef47a222f9f8ccc8aa4f9bc19c92d3e4, type: 3}
   firerate: 0.5
-  projectileSpeed: 1000
+  projectileSpeed: 20
   scattershot: 0
   multishot: 0
-  anim: {fileID: 0}
---- !u!114 &6391167484985277515
+  animator: {fileID: 0}
+--- !u!114 &3959765448551649666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,5 +64,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 706abe68816228246a36fef72a9ac38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8509430006224235352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560504490616367207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd17d1958fad464bb4b101fad93a91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

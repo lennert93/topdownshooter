@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class ProjectileInfo : MonoBehaviour
 {
-    public float autoDestory = 2f;
-    public float baseDamage;
-    public float elementaryDamage;
-    public bool canBounce;
+    public bool autoDestroy = true;
+    public float baseDamage = 50;
+    public float elementaryDamage = 0;
+    public bool canBounce = false;
 
     public float getDamage()
     {
         return baseDamage + elementaryDamage;
     }
 
-    private void Start()
+    private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, autoDestory);
+        if(autoDestroy) 
+        {
+            Destroy(gameObject);
+        }
     }
 }
