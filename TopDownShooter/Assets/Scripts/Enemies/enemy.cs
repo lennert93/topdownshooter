@@ -3,13 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemy : MonoBehaviour
 {
     public float health;
+    public Slider healthbar;
     // Start is called before the first frame update
     void Start()
     {
+        healthbar.maxValue = health;
+        healthbar.minValue = 0;
+        healthbar.value = health;
     }
 
     // Update is called once per frame
@@ -17,7 +22,7 @@ public class enemy : MonoBehaviour
     {
         //added
         lookingForPlayer();
-
+        healthbar.transform.rotation = Quaternion.LookRotation(transform.position - Camera.main.transform.position);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,13 +45,15 @@ public class enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        healthbar.value = health;
     }
 
     
     /* 15.04.: Idee:
      * Enemy schaut sich um (links oder rechts um seine eigene Achse).
-     * Sobald er den Player sieht, läuft er auf ihn zu.
-     * Hinzulaufen ist in moving() realisiert, weiß aber nicht ob es eine effizientere Möglichkeit gibt
+     * Sobald er den Player sieht, lï¿½uft er auf ihn zu.
+     * Hinzulaufen ist in moving() realisiert, weiï¿½ aber nicht ob es eine effizientere Mï¿½glichkeit gibt
      * 
     */
     
@@ -58,7 +65,7 @@ public class enemy : MonoBehaviour
     }
 
     /// <summary>
-    /// berechnet Position Enemy - Position Spieler und gibt den umgekehrten Vector zurück
+    /// berechnet Position Enemy - Position Spieler und gibt den umgekehrten Vector zurï¿½ck
     /// </summary>
     /// <returns></returns>
     private Vector3 getVectorToPlayerPosition()
@@ -81,16 +88,23 @@ public class enemy : MonoBehaviour
     /// </summary>
     private void lookingForPlayer()
     {
-        if(Math.Abs(getVectorToPlayerPosition().x) < 7 && Math.Abs(getVectorToPlayerPosition().z) < 7) //Beispielwerte, müssen größer als Kamerasichtweite sein
+        if(Math.Abs(getVectorToPlayerPosition().x) < 7 && Math.Abs(getVectorToPlayerPosition().z) < 7) //Beispielwerte, mï¿½ssen grï¿½ï¿½er als Kamerasichtweite sein
         {
             moving();
+            facingPlayer();
         }
+        
         //this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
         //if (seePlayer())
         //{
            // moving();
            // //facing
         //}
+    }
+
+    private void facingPlayer(){
+        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+
     }
 
 
