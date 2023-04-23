@@ -9,12 +9,15 @@ public class enemy : MonoBehaviour
 {
     public float health;
     public Slider healthbar;
+    public int range;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         healthbar.maxValue = health;
         healthbar.minValue = 0;
         healthbar.value = health;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -61,7 +64,8 @@ public class enemy : MonoBehaviour
     private void moving()
     {
         this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition() * enemySpeed * Time.fixedDeltaTime;
-
+        //anim.SetBool("isIdle", false);
+        //anim.SetBool("isWalking", true);
     }
 
     /// <summary>
@@ -88,17 +92,22 @@ public class enemy : MonoBehaviour
     /// </summary>
     private void lookingForPlayer()
     {
-        if(Math.Abs(getVectorToPlayerPosition().x) < 7 && Math.Abs(getVectorToPlayerPosition().z) < 7) //Beispielwerte, m�ssen gr��er als Kamerasichtweite sein
+        if (Math.Abs(getVectorToPlayerPosition().x) < range && Math.Abs(getVectorToPlayerPosition().z) < range) //Beispielwerte, m�ssen gr��er als Kamerasichtweite sein
         {
             moving();
             facingPlayer();
         }
-        
+        else
+        {
+            //anim.SetBool("isIdle", true);
+            //anim.SetBool("isWalking", false);
+        }
+
         //this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
         //if (seePlayer())
         //{
-           // moving();
-           // //facing
+        // moving();
+        // //facing
         //}
     }
 
