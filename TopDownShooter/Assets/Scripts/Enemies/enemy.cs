@@ -64,8 +64,9 @@ public class enemy : MonoBehaviour
     private void moving()
     {
         this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition() * enemySpeed * Time.fixedDeltaTime;
-        //anim.SetBool("isIdle", false);
-        //anim.SetBool("isWalking", true);
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isWalking", true);
+        Debug.Log("walking");
     }
 
     /// <summary>
@@ -99,8 +100,9 @@ public class enemy : MonoBehaviour
         }
         else
         {
-            //anim.SetBool("isIdle", true);
-            //anim.SetBool("isWalking", false);
+            anim.SetBool("isIdle", true);
+            anim.SetBool("isWalking", false);
+            Debug.Log("idle");
         }
 
         //this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
