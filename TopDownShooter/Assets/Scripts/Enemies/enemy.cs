@@ -11,6 +11,7 @@ public class enemy : MonoBehaviour
     public Slider healthbar;
     public int range;
     private Animator anim;
+    public float damage = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,11 @@ public class enemy : MonoBehaviour
             //leben reduzieren
             reduceHealth(info.getDamage());
             Destroy(collision.gameObject);
+        }
+        else if(collision.gameObject.tag == "Player")
+        {
+            PlayerStats stat = collision.gameObject.GetComponent<PlayerStats>();
+            stat.setHealth(stat.health - damage);
         }
     }
 
@@ -114,7 +120,8 @@ public class enemy : MonoBehaviour
     }
 
     private void facingPlayer(){
-        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+        Vector3 playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        transform.LookAt(new Vector3(playerPos.x, transform.position.y, playerPos.z));
 
     }
 
