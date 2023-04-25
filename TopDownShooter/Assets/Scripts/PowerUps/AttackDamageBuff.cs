@@ -9,6 +9,6 @@ public class AttackDamageBuff : PowerupEffect
     public override void Apply(GameObject target)
     {
         Weapon weapon = target.GetComponent<WeaponHandler>().getCurrentWeapon();
-        weapon.projectile.baseDamage += amount;
+        weapon.projectileInfo.baseDamage += amount;
     }
 }

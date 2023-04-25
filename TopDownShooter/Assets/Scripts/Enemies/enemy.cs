@@ -34,7 +34,7 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "projectile")
         {
-            ProjectileInfo info = collision.gameObject.GetComponent<ProjectileInfo>();
+            ProjectileInfo info = collision.gameObject.GetComponent<projectile>().info;
 
             //leben reduzieren
             reduceHealth(info.getDamage());

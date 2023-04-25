@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2318900439590997865}
   - component: {fileID: 4481358584403803625}
   - component: {fileID: 3959765448551649666}
+  - component: {fileID: -1124182032389385724}
   m_Layer: 0
   m_Name: DefaultWeapon
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior: {fileID: 0}
   isAutomatic: 0
-  projectile: {fileID: -3226818858245403308, guid: ef47a222f9f8ccc8aa4f9bc19c92d3e4, type: 3}
+  projectileInfo: {fileID: 0}
   firerate: 0.5
   projectileSpeed: 20
   scattershot: 0
@@ -65,3 +66,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706abe68816228246a36fef72a9ac38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1124182032389385724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560504490616367207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb3b2370838f68529dbc21df31e5e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 4476518324235823548, guid: ef47a222f9f8ccc8aa4f9bc19c92d3e4, type: 3}
+  autoDestroy: 1
+  baseDamage: 50
+  elementaryDamage: 0
+  canBounce: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileInfo : MonoBehaviour
 {
+    public GameObject model;
     public bool autoDestroy = true;
     public float baseDamage = 50;
     public float elementaryDamage = 0;
@@ -14,11 +15,10 @@ public class ProjectileInfo : MonoBehaviour
         return baseDamage + elementaryDamage;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public GameObject createProjectile(Vector3 pos, Quaternion rot)
     {
-        if (autoDestroy && collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
-        {
-            Destroy(gameObject);
-        }
+        GameObject obj = Instantiate(model, pos, rot);
+        obj.GetComponent<projectile>().info = this;
+        return obj;
     }
 }
