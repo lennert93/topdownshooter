@@ -12,6 +12,7 @@ public class enemy : MonoBehaviour
     public int range;
     private Animator anim;
     public float damage = 50;
+    private bool collided = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,8 +42,17 @@ public class enemy : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Player")
         {
+            collided = true;
             PlayerStats stat = collision.gameObject.GetComponent<PlayerStats>();
             stat.setHealth(stat.health - damage);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collided = false;
         }
     }
 
@@ -69,6 +79,7 @@ public class enemy : MonoBehaviour
     public float enemySpeed;
     private void moving()
     {
+        if (collided) return;
         this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition().normalized * enemySpeed * Time.fixedDeltaTime;
         anim.SetBool("isIdle", false);
         anim.SetBool("isWalking", true);

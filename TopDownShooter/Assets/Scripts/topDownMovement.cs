@@ -58,7 +58,7 @@ public class topDownMovement : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (Physics.Raycast(ray, out hit, 100f, 1 << 3))
         {
             Debug.DrawRay(ray.GetPoint(0), ray.direction * 100);
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
