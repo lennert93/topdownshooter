@@ -69,7 +69,7 @@ public class enemy : MonoBehaviour
     public float enemySpeed;
     private void moving()
     {
-        this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition() * enemySpeed * Time.fixedDeltaTime;
+        this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition().normalized * enemySpeed * Time.fixedDeltaTime;
         anim.SetBool("isIdle", false);
         anim.SetBool("isWalking", true);
         Debug.Log("walking");
