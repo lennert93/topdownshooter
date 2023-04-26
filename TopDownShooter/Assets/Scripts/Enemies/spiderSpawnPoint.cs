@@ -15,6 +15,7 @@ public class spiderSpawnPoint : MonoBehaviour
 
     public IEnumerator spawnSpider()
     {
+        Debug.Log("spawnSpider");
         while (true)
         {
             Instantiate(spider, transform.position, Quaternion.identity);

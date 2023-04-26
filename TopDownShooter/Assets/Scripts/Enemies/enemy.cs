@@ -13,7 +13,6 @@ public class enemy : MonoBehaviour
     private Animator anim;
     public float damage = 50;
     private bool collided = false;
-    public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +20,6 @@ public class enemy : MonoBehaviour
         healthbar.minValue = 0;
         healthbar.value = health;
         anim = GetComponent<Animator>();
-        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,11 +45,11 @@ public class enemy : MonoBehaviour
             collided = true;
             PlayerStats stat = collision.gameObject.GetComponent<PlayerStats>();
             stat.setHealth(stat.health - damage);
-            if(stat.health <= 0)
-            {
-                Destroy(GameObject.FindGameObjectWithTag("Player"));
-                panel.SetActive(true);
-            }
+            //if(stat.health <= 0)
+            //{
+            //    Destroy(GameObject.FindGameObjectWithTag("Player"));
+            //    panel.SetActive(true);
+            //}
         }
     }
 
@@ -90,7 +88,7 @@ public class enemy : MonoBehaviour
         this.GetComponent<Rigidbody>().transform.position += getVectorToPlayerPosition().normalized * enemySpeed * Time.fixedDeltaTime;
         anim.SetBool("isIdle", false);
         anim.SetBool("isWalking", true);
-        Debug.Log("walking");
+        //Debug.Log("walking");
     }
 
     /// <summary>
@@ -99,14 +97,20 @@ public class enemy : MonoBehaviour
     /// <returns></returns>
     private Vector3 getVectorToPlayerPosition()
     {
-        Vector3 enemyPosition = this.GetComponent<Rigidbody>().transform.position;
-        Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position; //changed Tag from player to "Player"
-        // Debug.Log(playerPosition);
-        Vector3 x = new Vector3(
-            enemyPosition.x - playerPosition.x,
-            0,
-            enemyPosition.z - playerPosition.z);
-        return -x;
+        try
+        {
+            Vector3 enemyPosition = this.GetComponent<Rigidbody>().transform.position;
+            Vector3 playerPosition = GameObject.FindGameObjectWithTag("Player").transform.position; //changed Tag from player to "Player"
+            // Debug.Log(playerPosition);
+            Vector3 x = new Vector3(
+                enemyPosition.x - playerPosition.x,
+                0,
+                enemyPosition.z - playerPosition.z);
+            return -x;
+        }catch (Exception e)
+        {
+            return transform.position;
+        }
     }
 
     private Vector3 RotationVector = new Vector3(0f, 1f, 0f);
@@ -126,7 +130,7 @@ public class enemy : MonoBehaviour
         {
             anim.SetBool("isIdle", true);
             anim.SetBool("isWalking", false);
-            Debug.Log("idle");
+            //Debug.Log("idle");
         }
 
         //this.GetComponent<Rigidbody>().transform.Rotate(RotationVector * rotationSpeed, Space.World);
