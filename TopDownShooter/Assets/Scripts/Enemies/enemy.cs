@@ -13,6 +13,7 @@ public class enemy : MonoBehaviour
     private Animator anim;
     public float damage = 50;
     private bool collided = false;
+    public GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class enemy : MonoBehaviour
         healthbar.minValue = 0;
         healthbar.value = health;
         anim = GetComponent<Animator>();
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,6 +47,11 @@ public class enemy : MonoBehaviour
             collided = true;
             PlayerStats stat = collision.gameObject.GetComponent<PlayerStats>();
             stat.setHealth(stat.health - damage);
+            if(stat.health <= 0)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+                panel.SetActive(true);
+            }
         }
     }
 
